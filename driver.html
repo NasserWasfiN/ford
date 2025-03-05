@@ -1,0 +1,138 @@
+<!-- driver.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Information</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .video-section, .form-section {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .video-section video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            width: 120px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Left: Video Section -->
+    <div class="video-section">
+        <video autoplay loop muted>
+            <source src="vedio.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Right: Driver Information Form -->
+    <div class="form-section">
+        <h2>Driver Information</h2>
+
+        <!-- First Name -->
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" placeholder="Enter First Name">
+
+        <!-- Last Name -->
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" placeholder="Enter Last Name">
+
+        <!-- Sex -->
+        <label for="sex">Sex:</label>
+        <select id="sex">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <!-- Marital Status -->
+        <label for="maritalStatus">Marital Status:</label>
+        <select id="maritalStatus">
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+            <option value="widowed">Widowed</option>
+        </select>
+
+        <!-- Date of Birth -->
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob">
+
+        <button class="btn"><a href="licence.html">Submit</a></button>
+    </div>
+</div>
+
+<script>
+    function submitDriverInfo() {
+        let firstName = document.getElementById("firstName").value;
+        let lastName = document.getElementById("lastName").value;
+        let sex = document.getElementById("sex").value;
+        let maritalStatus = document.getElementById("maritalStatus").value;
+        let dob = document.getElementById("dob").value;
+        
+        if (firstName === "" || lastName === "" || dob === "") {
+            alert("Please fill in all fields.");
+        } else {
+            alert(`Driver Information Submitted:\nName: ${firstName} ${lastName}\nSex: ${sex}\nMarital Status: ${maritalStatus}\nDOB: ${dob}`);
+        }
+    }
+</script>
+
+</body>
+</html>

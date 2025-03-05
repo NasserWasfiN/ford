@@ -1,0 +1,117 @@
+<!-- submit.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Vehicle Details</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .video-section, .form-section {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .video-section video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        select, input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            width: 120px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Left: Video Section -->
+    <div class="video-section">
+        <video autoplay loop muted>
+            <source src="vedio.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Right: Vehicle Condition & Purchase Date Form -->
+    <div class="form-section">
+        <h2>Submit Vehicle Details</h2>
+
+        <!-- Vehicle Condition -->
+        <label for="condition">Is the vehicle in good condition?</label>
+        <select id="condition">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <!-- Purchase Date -->
+        <label for="purchaseDate">Select Purchase Date:</label>
+        <input type="date" id="purchaseDate">
+
+        <button class="btn"><a href="yourvehicle.html">Submit</a></button>
+    </div>
+</div>
+
+<script>
+    function submitDetails() {
+        let condition = document.getElementById("condition").value;
+        let purchaseDate = document.getElementById("purchaseDate").value;
+        
+        if (purchaseDate === "") {
+            alert("Please select a purchase date.");
+        } else {
+            alert(`Vehicle Details Submitted:\nCondition: ${condition}\nPurchase Date: ${purchaseDate}`);
+        }
+    }
+</script>
+
+</body>
+</html>

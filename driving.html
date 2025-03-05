@@ -1,0 +1,124 @@
+<!-- driving.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving History</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .video-section, .form-section {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .video-section video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            width: 120px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Left: Video Section -->
+    <div class="video-section">
+        <video autoplay loop muted>
+            <source src="vedio.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Right: Driving History Form -->
+    <div class="form-section">
+        <h2>Driving History</h2>
+
+        <!-- Minor Convictions -->
+        <label for="minorConvictions">Any minor convictions in the last 3 years?</label>
+        <select id="minorConvictions">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <!-- Major/Serious/Criminal Convictions -->
+        <label for="majorConvictions">Any major, serious, or criminal convictions in the last 3 years?</label>
+        <select id="majorConvictions">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <!-- At-Fault Accidents -->
+        <label for="atFaultAccidents">Any at-fault accidents in the last 10 years?</label>
+        <select id="atFaultAccidents">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <button class="btn"><a href="quote.html">Submit</a></button>
+    </div>
+</div>
+
+<script>
+    function submitDrivingHistory() {
+        let minorConvictions = document.getElementById("minorConvictions").value;
+        let majorConvictions = document.getElementById("majorConvictions").value;
+        let atFaultAccidents = document.getElementById("atFaultAccidents").value;
+        
+        alert(`Driving History Submitted:\nMinor Convictions: ${minorConvictions}\nMajor Convictions: ${majorConvictions}\nAt-Fault Accidents: ${atFaultAccidents}`);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!-- page1.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #fff;
+        }
+
+        .loader {
+            text-align: center;
+        }
+
+        .loader img {
+            width: 150px; /* Adjust logo size */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <script>
+        setTimeout(() => {
+            window.location.href = "page2.html"; // Redirect to Page 2 after 3 seconds
+        }, 3000);
+    </script>
+</head>
+<body>
+    <div class="loader">
+        <img src="ford.png" alt="Company Logo">
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!-- yes.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter VIN</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .video-section, .form-section {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .video-section video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .btn {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            width: 120px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Left: Video Section -->
+    <div class="video-section">
+        <video autoplay loop muted>
+            <source src="vedio.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Right: VIN Input Form -->
+    <div class="form-section">
+        <h2>Please Enter Your Car's VIN</h2>
+        <p>The VIN (Vehicle Identification Number) is a 17-character unique code for your car.</p>
+        <input type="text" id="vin" placeholder="Enter your VIN" maxlength="17">
+        <button class="btn"><a href="submit.html">Submit</a></button>
+    </div>
+</div>
+
+<script>
+    function submitVIN() {
+        let vin = document.getElementById("vin").value.trim();
+        if (vin.length === 17) {
+            alert("VIN submitted successfully!");
+            // Redirect or process the VIN
+        } else {
+            alert("Please enter a valid 17-character VIN.");
+        }
+    }
+</script>
+
+</body>
+</html>

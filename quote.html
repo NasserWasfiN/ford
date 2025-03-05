@@ -1,0 +1,117 @@
+<!-- quote.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Quote</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .quote-section {
+            background: #f4f4f4;
+            padding: 30px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            width: 120px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .quote {
+            font-size: 24px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="quote-section">
+        <h2>Insurance Quote Estimation</h2>
+
+        <!-- Payment Plan Selection -->
+        <label for="paymentPlan">Select Payment Plan:</label>
+        <select id="paymentPlan" onchange="calculateQuote()">
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+        </select>
+
+        <!-- Display Quote -->
+        <div class="quote">
+            Estimated Price: $<span id="quoteValue">100</span>
+        </div>
+
+        <button class="btn" onclick="submitQuote()">Submit</button>
+    </div>
+</div>
+
+<script>
+    function calculateQuote() {
+        const paymentPlan = document.getElementById("paymentPlan").value;
+        let basePrice = 100; // Base price for the insurance
+
+        if (paymentPlan === "monthly") {
+            // Monthly price is just the base price
+            document.getElementById("quoteValue").innerText = basePrice;
+        } else if (paymentPlan === "yearly") {
+            // Yearly price is the base price multiplied by 12
+            let yearlyPrice = basePrice * 12;
+            document.getElementById("quoteValue").innerText = yearlyPrice;
+        }
+    }
+
+    function submitQuote() {
+        alert("Quote Submitted. Thank you for using our service!");
+    }
+
+    // Initial calculation when the page loads
+    window.onload = calculateQuote;
+</script>
+
+</body>
+</html>
